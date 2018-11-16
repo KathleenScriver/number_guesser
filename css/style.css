@@ -1,0 +1,17 @@
+body {
+  font-family: 'Open Sans', sans-serif;
+}
+
+header h1 {
+  text-align: center;
+  background-color: #404041;
+  color: #ED458B;
+  font-weight: 700;
+  font-size: 50px;
+  padding: 20px;
+}
+
+header span {
+  color: #E6E7E8;
+  font-weight: 300;
+}
