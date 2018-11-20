@@ -1,4 +1,4 @@
-let randomNumber;
+var randomNumber;
 const guessSubmit = document.querySelector('.guessSubmit');
 const mostRecentGuess = document.querySelector('.mostRecentGuess');
 const correctGuess = document.querySelector('.correctGuess');
@@ -7,12 +7,13 @@ const highLow = document.querySelector('.highLow');
 const min = 1;
 const max = 100;
 const gameReset = document.querySelector('.gameReset');
-let userGuess;
 
 document.onload = gameStart();
 
 function gameStart() {
   setNumber();
+  guessField.disabled = false;
+  guessSubmit.disabled = false;
   guessField.focus();
 }
 
@@ -25,7 +26,7 @@ gameReset.addEventListener('click', restartGame);
 
 function guessCheck(event) {
   event.preventDefault();
-  userGuess = Number(guessField.value);
+  let userGuess = Number(guessField.value);
 
   if (validateGuess(userGuess)) {
     mostRecentGuess.textContent = 'Your Most Recent Guess: ' + userGuess;
@@ -45,7 +46,7 @@ function guessCheck(event) {
 };
 
 function validateGuess(guess) {
-  const guessError = document.querySelector('.error');
+  let guessError = document.querySelector('.error');
   guessError.textContent = '';
   if (isNaN(guess)) {
     guessError.textContent = "You need to guess a numberical number.";
