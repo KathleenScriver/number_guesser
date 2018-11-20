@@ -7,8 +7,9 @@ const highLow = document.querySelector('.highLow');
 const min = 1;
 const max = 100;
 const gameReset = document.querySelector('.gameReset');
+let userGuess;
 
-document.onload = gameStart;
+document.onload = gameStart();
 
 function gameStart() {
   setNumber();
@@ -24,7 +25,7 @@ gameReset.addEventListener('click', restartGame);
 
 function guessCheck(event) {
   event.preventDefault();
-  let userGuess = Number(guessField.value);
+  userGuess = Number(guessField.value);
 
   if (validateGuess(userGuess)) {
     mostRecentGuess.textContent = 'Your Most Recent Guess: ' + userGuess;
@@ -62,11 +63,10 @@ function validateGuess(guess) {
 };
 
 function restartGame() {
-  randomNumber = Math.floor((Math.random() * 100) + 1);
   gameReset.disabled = true;
   let messages = document.querySelectorAll('.guessState');
   for (i = 0; i < messages.length; i++) {
     messages[i].textContent = '';
   };
-  userGuess.focus();
+  gameStart();
 };
