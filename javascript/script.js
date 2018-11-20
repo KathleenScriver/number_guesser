@@ -1,4 +1,4 @@
-let randomNumber = Math.floor((Math.random() * 100) + 1);
+let randomNumber;
 const guessSubmit = document.querySelector('.guessSubmit');
 const mostRecentGuess = document.querySelector('.mostRecentGuess');
 const correctGuess = document.querySelector('.correctGuess');
@@ -6,10 +6,21 @@ const guessField = document.querySelector('.userGuess');
 const highLow = document.querySelector('.highLow');
 const min = 1;
 const max = 100;
+const gameReset = document.querySelector('.gameReset');
 
-guessField.focus();
+document.onload = gameStart;
+
+function gameStart() {
+  setNumber();
+  guessField.focus();
+}
+
+function setNumber() {
+  randomNumber = Math.floor((Math.random() * 100) + 1);
+};
 
 guessSubmit.addEventListener('click', guessCheck);
+gameReset.addEventListener('click', restartGame);
 
 function guessCheck(event) {
   event.preventDefault();
@@ -48,4 +59,14 @@ function validateGuess(guess) {
   } else {
     return true;
   }
-}
+};
+
+function restartGame() {
+  randomNumber = Math.floor((Math.random() * 100) + 1);
+  gameReset.disabled = true;
+  let messages = document.querySelectorAll('.guessState');
+  for (i = 0; i < messages.length; i++) {
+    messages[i].textContent = '';
+  };
+  userGuess.focus();
+};
