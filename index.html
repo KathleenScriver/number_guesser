@@ -1,9 +1,11 @@
 <!DOCTYPE>
 <html>
   <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
     <link rel='stylesheet' type='text/css' href='css/reset.css'>
     <link rel='stylesheet' type='text/css' href='css/style.css'>
+    <script type='text/javascript' src='javascript/validation.js'></script>
     <script async src='javascript/script.js'></script>
     <title>Number Guesser</title>
   </head>
@@ -15,11 +17,16 @@
     <div>
       <h6>A random number has been generated from 1 - 100. Try to guess the number!</h6>
       <form>
-        <input type='text' class='userGuess' pattern='[1-9]|[1-9][0-9]|[100]' placeholder="Enter your guess">
+        <input type='text' class='userGuess' placeholder="Enter your guess">
+        <p id='errorMessage'></p>
         <input type='submit' value='Guess!' class='guessSubmit'>
         <button class='clearGuess' type='reset'>Clear Guess</button>
       </form>
       <button class='gameReset' type='button'>Start New Game</button>
+    </div>
+
+    <div class='guessErrors'>
+      <p class='error'></p>
     </div>
 
     <div class='guessState'>
