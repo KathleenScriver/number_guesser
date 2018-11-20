@@ -17,7 +17,7 @@ function gameStart() {
 }
 
 function setNumber() {
-  randomNumber = Math.floor((Math.random() * 100) + 1);
+  randomNumber = Math.floor((Math.random() * 10) + 1);
 };
 
 guessSubmit.addEventListener('click', guessCheck);
@@ -29,27 +29,23 @@ function guessCheck(event) {
 
   if (validateGuess(userGuess)) {
     mostRecentGuess.textContent = 'Your Most Recent Guess: ' + userGuess;
-
     if (userGuess === randomNumber) {
       highLow.textContent = '';
       correctGuess.textContent = "BOOM!";
       guessSubmit.disabled = true;
       guessField.disabled = true;
-      resetGame();
     } else if (userGuess > randomNumber) {
       highLow.textContent = "That is too high!";
     } else if (userGuess < randomNumber) {
       highLow.textContent = "That is too low!";
     }
-
     guessField.value = '';
     guessField.focus();
   };
 };
 
-const guessError = document.querySelector('.error');
-
 function validateGuess(guess) {
+  const guessError = document.querySelector('.error');
   guessError.textContent = '';
   if (isNaN(guess)) {
     guessError.textContent = "You need to guess a numberical number.";
@@ -68,5 +64,6 @@ function restartGame() {
   for (i = 0; i < messages.length; i++) {
     messages[i].textContent = '';
   };
+  guessField.value = '';
   gameStart();
 };
