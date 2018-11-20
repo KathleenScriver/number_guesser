@@ -18,7 +18,7 @@ function gameStart() {
 }
 
 function setNumber() {
-  randomNumber = Math.floor((Math.random() * 10) + 1);
+  randomNumber = Math.floor((Math.random() * 100) + 1);
 };
 
 guessSubmit.addEventListener('click', guessCheck);
@@ -61,7 +61,7 @@ function validateGuess(guess) {
 
 function restartGame() {
   gameReset.disabled = true;
-  let messages = document.querySelectorAll('.guessState');
+  let messages = document.querySelectorAll('.guessState p');
   for (i = 0; i < messages.length; i++) {
     messages[i].textContent = '';
   };
