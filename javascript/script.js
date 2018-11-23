@@ -4,21 +4,49 @@ const mostRecentGuess = document.querySelector('.mostRecentGuess');
 const correctGuess = document.querySelector('.correctGuess');
 const guessField = document.querySelector('.userGuess');
 const highLow = document.querySelector('.highLow');
-const min = 1;
-const max = 100;
 const gameReset = document.querySelector('.gameReset');
+const instructions = document.getElementById('instructions');
+const gameState = document.querySelector('.gameState');
+const rangeMinField = document.querySelector('.rangeMin');
+const rangeMaxField = document.querySelector('.rangeMax');
+const rangeSet = document.querySelector('.rangeSet');
+var gameRound = 1;
 
 document.onload = gameStart();
 
 function gameStart() {
-  setNumber();
+  if (gameRound === 1) {
+    instructions.style.display = 'block';
+    rangeMinField.focus();
+  } else {
+    setNumber(event);
+    guessField.focus();
+  }
   guessField.disabled = false;
   guessSubmit.disabled = false;
-  guessField.focus();
+  let round = document.querySelector('.round');
+  round.textContent = "Round: " + gameRound;
 }
 
-function setNumber() {
-  randomNumber = Math.floor((Math.random() * 100) + 1);
+rangeSet.addEventListener('click', setNumber);
+var rangeMin;
+var rangeMax;
+
+function setNumber(event) {
+  event.preventDefault();
+  instructions.style.display = 'none';
+  if (gameRound === 1) {
+    rangeMin = Number(rangeMinField.value);
+    rangeMax = Number(rangeMaxField.value);
+  } else {
+    rangeMin < 10 ? rangeMin = 0 : rangeMin - 10;
+    rangeMax = rangeMax + 10;
+  }
+  let guessRange = rangeMax - rangeMin;
+  randomNumber = Math.floor((Math.random() * (guessRange + 1)) + rangeMin);
+  let gameRange = document.querySelector('.gameRange')
+  gameRange.textContent = "The Secret Number is between " + rangeMin + " and " + rangeMax
+  guessField.focus()
 };
 
 guessSubmit.addEventListener('click', guessCheck);
@@ -51,8 +79,8 @@ function validateGuess(guess) {
   if (isNaN(guess)) {
     guessError.textContent = "You need to guess a numberical number.";
     return false;
-  } else if (guess < min || guess > max) {
-    guessError.textContent = 'Your guess should be between ' + min + ' and ' + max;
+  } else if (guess < rangeMin || guess > rangeMax) {
+    guessError.textContent = 'Your guess should be between ' + rangeMin + ' and ' + rangeMax;
     return false;
   } else {
     return true;
@@ -66,5 +94,6 @@ function restartGame() {
     messages[i].textContent = '';
   };
   guessField.value = '';
+  gameRound++;
   gameStart();
 };
