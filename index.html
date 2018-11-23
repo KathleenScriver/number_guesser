@@ -17,38 +17,42 @@
     <div id='instructions'>
       <h6>Enter the Number Range for which you'd like the Random Number to be between.</h6>
       <p>When you get the answer correct, the next round's minimum range will decrease by
-        10 and the maximum will increase by 10! Can you do it?  **Please note, numbers will
+        10 and the maximum will increase by 10!
+        <p>Can you do it?</p>
+        <p> **Please note, numbers will
         always remain positive**</p>
         <form>
           <input type='text' class='rangeMin' placeholder="Minimum">
           <input type='text' class='rangeMax' placeholder="Maximum">
-          <input type='submit' value='Set Range' class='rangeSet'>
+          <input type='submit' value='Set Range' class='rangeSet button'>
         </form>
     </div>
 
     <div>
-      <form>
+      <form id='guessForm'>
         <input type='text' class='userGuess' placeholder="Enter your guess">
         <p id='errorMessage'></p>
-        <input type='submit' value='Guess!' class='guessSubmit'>
-        <button class='clearGuess' disabled>Clear Guess</button>
+        <input type='submit' value='Guess!' class='guessSubmit button'>
+        <button class='clearGuess button' disabled>Clear Guess</button>
       </form>
-      <button class='gameReset' type='button' disabled>Start New Game</button>
     </div>
 
     <div class='guessErrors'>
       <p class='error'></p>
     </div>
 
+    <div class='guessState'>
+      <p>Your Most Recent Guess</p>
+      <p class='mostRecentGuess'></p>
+      <p class='highLow'></p>
+      <p class='correctGuess'></p>
+    </div>
+    
     <div class='gameState'>
       <p class='gameRange'></p>
       <p class='round'></p>
     </div>
 
-    <div class='guessState'>
-      <p class='mostRecentGuess'></p>
-      <p class='highLow'></p>
-      <p class='correctGuess'></p>
-    </div>
+    <button class='gameReset button' type='button' disabled>Start New Game</button>
   </body>
 </html>

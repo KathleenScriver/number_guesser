@@ -1,5 +1,6 @@
 body {
   font-family: 'Open Sans', sans-serif;
+  text-align: center;
 }
 
 header h1 {
@@ -14,4 +15,70 @@ header h1 {
 header span {
   color: #E6E7E8;
   font-weight: 300;
+}
+
+.disabled {
+  background-color: #D0D2D3;
+  color: #FFFFFF;
+}
+
+#instructions {
+  text-align: center;
+  color: #ED458B;
+  background: #E6E7E8;
+  padding: 25px;
+  line-height: 20px;
+}
+
+#instructions form {
+  padding: 10px;
+}
+
+#instructions input {
+  padding: 8px;
+  font-size: 11px;
+  color: #404041;
+}
+
+#instructions p {
+  padding: 5px;
+}
+
+.button {
+  color: #FFFFFF;
+  background-color: #929497;
+  border-radius: 12px;
+}
+
+.button:hover {
+  background: #EB008B;
+}
+
+#guessForm {
+
+}
+
+#guessForm input {
+  margin: 10px;
+}
+
+.userGuess {
+  width: 200px;
+}
+
+.guessState {
+  margin: 10px;
+  font-weight: 300;
+  padding: 20px;
+}
+
+.mostRecentGuess {
+  font-weight: 300;
+  color: #ED458B;
+  font-size: 50px;
+  margin: 10px;
+}
+
+.gameState {
+  margin: 10px;
 }

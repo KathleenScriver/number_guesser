@@ -57,7 +57,7 @@ function guessCheck(event) {
   let userGuess = Number(guessField.value);
 
   if (validateGuess(userGuess)) {
-    mostRecentGuess.textContent = 'Your Most Recent Guess: ' + userGuess;
+    mostRecentGuess.textContent = userGuess;
     if (userGuess === randomNumber) {
       highLow.textContent = '';
       correctGuess.textContent = "BOOM!";
