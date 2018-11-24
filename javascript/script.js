@@ -39,7 +39,7 @@ function setNumber(event) {
     rangeMin = Number(rangeMinField.value);
     rangeMax = Number(rangeMaxField.value);
   } else {
-    rangeMin < 10 ? rangeMin = 0 : rangeMin - 10;
+    rangeMin < 10 ? rangeMin = 0 : rangeMin -= 10;
     rangeMax = rangeMax + 10;
   }
   let guessRange = rangeMax - rangeMin;
