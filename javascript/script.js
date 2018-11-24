@@ -70,8 +70,8 @@ function setNumber(event) {
     rangeMin = Number(rangeMinField.value);
     rangeMax = Number(rangeMaxField.value);
   } else {
-    rangeMin < 10 ? rangeMin = 0 : rangeMin -= 10;
-    rangeMax = rangeMax + 10;
+    rangeMax += 10;
+    rangeMin < 11 ? rangeMin = 0 : rangeMin -= 10;
   }
   let guessRange = rangeMax - rangeMin;
   randomNumber = Math.floor((Math.random() * (guessRange + 1)) + rangeMin);
