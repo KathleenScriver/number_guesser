@@ -28,6 +28,7 @@ header span {
   background: #E6E7E8;
   padding: 25px;
   line-height: 20px;
+  font-weight: 300;
 }
 
 #instructions form {
@@ -48,6 +49,9 @@ header span {
   color: #FFFFFF;
   background-color: #929497;
   border-radius: 12px;
+  font-weight: 300;
+  font-size: 13px;
+  width: 130px;
 }
 
 .button:hover {
@@ -63,7 +67,11 @@ header span {
 }
 
 .userGuess {
-  width: 200px;
+  width: 280px;
+  height: 25px;
+  font-size: 12px;
+  font-weight: 300;
+  letter-spacing: 1px;
 }
 
 .guessState {
