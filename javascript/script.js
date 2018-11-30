@@ -11,6 +11,11 @@ const rangeMinField = document.querySelector('.rangeMin');
 const rangeMaxField = document.querySelector('.rangeMax');
 const rangeSet = document.querySelector('.rangeSet');
 var gameRound = 1;
+var rangeMin;
+var rangeMax;
+rangeSet.addEventListener('click', setNumber);
+guessSubmit.addEventListener('click', guessCheck);
+gameReset.addEventListener('click', restartGame);
 
 document.onload = gameStart();
 
@@ -27,10 +32,6 @@ function gameStart() {
   let round = document.querySelector('.round');
   round.textContent = "Round: " + gameRound;
 }
-
-rangeSet.addEventListener('click', setNumber);
-var rangeMin;
-var rangeMax;
 
 function setNumber(event) {
   event.preventDefault();
@@ -49,8 +50,6 @@ function setNumber(event) {
   guessField.focus()
 };
 
-guessSubmit.addEventListener('click', guessCheck);
-gameReset.addEventListener('click', restartGame);
 
 function guessCheck(event) {
   event.preventDefault();
